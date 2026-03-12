@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { WalletState } from "../../types";
 
-interface WalletState {
-  address: string;
-  isAuthenticated: boolean;
-}
+
 
 const initialState: WalletState = {
   address: "",
