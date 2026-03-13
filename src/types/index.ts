@@ -11,3 +11,35 @@ export interface walletState {
   isConnected: boolean;
   chainId: number | null;
 }
+
+// game slice types
+
+export interface GameState {
+  gameId: string;
+  player1: string;
+  player2: string;
+  stake: number;
+  movePlayer1: string;
+  movePlayer2: string;
+  gameStatus: "idle" | "waiting" | "active" | "completed";
+}
+
+// Input component props
+export interface InputProps {
+  label: string;
+  type: string;
+  placeholder?: string;
+  value: string | number;
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  step?: number;
+}
+
+// Select component props
+export interface SelectProps {
+  label: string;
+  name: string;
+  value: string | number;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: Array<{ label: string; value: string | number }>;
+}
