@@ -1,12 +1,13 @@
 // declaring global interface for window.ethereum
-declare global{
-  interface Window{
+declare global {
+  interface Window {
     ethereum?: any;
   }
 }
 
 // wallet slice types
-export interface WalletState {
+export interface walletState {
   address: string;
-  isAuthenticated: boolean;
+  isConnected: boolean;
+  chainId: number | null;
 }

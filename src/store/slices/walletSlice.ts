@@ -1,25 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { WalletState } from "../../types";
+import type { walletState } from "../../types";
 
-
-
-const initialState: WalletState = {
+const initialState: walletState = {
   address: "",
-  isAuthenticated: false,
+  isConnected: false,
+  chainId: null,
 };
 
 const walletSlice = createSlice({
   name: "wallet",
   initialState,
   reducers: {
-    setAddress: (state, action) => {
-      state.address = action.payload;
+    connectWallet: (state, action) => {
+      state.address = action.payload.address;
+      state.chainId = action.payload.chainId;
+      state.isConnected = true;
     },
-    setIsAuthenticated: (state, action) => {
-      state.isAuthenticated = action.payload;
+    disconnectWallet: (state) => {
+      state.address = "";
+      state.chainId = null;
+      state.isConnected = false;
     },
   },
 });
-export const { setAddress, setIsAuthenticated } = walletSlice.actions;
-
+export const { connectWallet, disconnectWallet } = walletSlice.actions;
 export default walletSlice.reducer;

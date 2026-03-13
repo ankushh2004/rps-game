@@ -1,9 +1,7 @@
+import Login from "./pages/Login";
+
 function App() {
-  return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Jai Shree Ram</h1>
-    </div>
-  );
+  return <Login />;
 }
 
 export default App;
