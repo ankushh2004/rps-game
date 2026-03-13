@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { ABI, CONTRACT_BYTECODE } from "../constants/contract";
 
 // Function to get the provider from MetaMask
 export const getProvider = () => {
@@ -17,4 +18,12 @@ export const getSigner = async () => {
   const connectedAddress = await signer.getAddress();
 
   return { connectedAddress, signer };
+};
+
+// Function to get a contract factory for deploying new contracts
+export const getContractFactory = async () => {
+  const { signer } = await getSigner();
+
+  const factory = new ethers.ContractFactory(ABI, CONTRACT_BYTECODE, signer);
+  return factory;
 };
