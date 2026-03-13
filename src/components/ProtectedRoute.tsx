@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router";
+import type { RootState } from "../store";
+
 const ProtectedRoute = () => {
-  return (
-    <div>
-      <h1>Protected Route</h1>
-    </div>
-  );
+  const { isConnected } = useSelector((state: RootState) => state.wallet);
+
+  return isConnected ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
