@@ -14,7 +14,7 @@ export const getSigner = async () => {
   const provider = getProvider();
   await provider.send("eth_requestAccounts", []);
   const signer = provider.getSigner();
-  const connectedAccount = await signer.getAddress();
+  const connectedAddress = await signer.getAddress();
 
-  return { connectedAccount, signer };
+  return { connectedAddress, signer };
 };

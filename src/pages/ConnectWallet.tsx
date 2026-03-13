@@ -11,7 +11,7 @@ const ConnectWallet = () => {
   const wallet = useSelector((state: RootState) => state.wallet);
 
   const handleConnect = async () => {
-    const { connectedAccount } = await getSigner();
+    const { connectedAddress } = await getSigner();
     const provider = getProvider();
     const network = await provider.getNetwork();
 
@@ -34,7 +34,7 @@ const ConnectWallet = () => {
 
     dispatch(
       connectWallet({
-        address: connectedAccount,
+        address: connectedAddress,
         isConnected: true,
         chainId: network.chainId,
       }),
