@@ -33,6 +33,7 @@ export interface InputProps {
   name: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   step?: number;
+  error?: string;
 }
 
 // Select component props
@@ -42,4 +43,19 @@ export interface SelectProps {
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   options: Array<{ label: string; value: string | number }>;
+  error?: string;
+}
+
+// Form data for CreateGame component
+
+export interface CreateGameForm {
+  player2: string;
+  stake: string;
+  move: string;
+}
+
+export interface JoinGameForm {
+  gameId: string;
+  stake: string;
+  gesture: string;
 }
