@@ -13,7 +13,7 @@ export const getProvider = () => {
 export const getSigner = async () => {
   const provider = getProvider();
   await provider.send("eth_requestAccounts", []);
-  const signer =  provider.getSigner();
+  const signer = provider.getSigner();
   const connectedAccount = await signer.getAddress();
 
   return { connectedAccount, signer };
