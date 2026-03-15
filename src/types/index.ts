@@ -15,13 +15,13 @@ export interface walletState {
 // game slice types
 
 export interface GameState {
-  gameId: string;
-  player1: string;
-  player2: string;
-  stake: number;
-  movePlayer1: string;
-  movePlayer2: string;
-  gameStatus: "idle" | "waiting" | "active" | "completed";
+  gameId: string | null;
+  opponent: string | null;
+  stake: string;
+  move: string | null;
+  salt: string | null;
+  commitmentHash: string | null;
+  status: "idle" | "creating" | "waiting" | "joined" | "reveal" | "finished";
 }
 
 // Input component props
@@ -44,6 +44,14 @@ export interface SelectProps {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   options: Array<{ label: string; value: string | number }>;
   error?: string;
+}
+
+// Modal component props
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
 }
 
 // Form data for CreateGame component
